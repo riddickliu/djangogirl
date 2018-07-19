@@ -16,6 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-urlpatterns = [
+'''urlpatterns = [
     path('admin/', admin.site.urls),
+]'''
+
+from django.conf.urls import include, url
+from django.contrib import admin
+
+urlpatterns = [
+    url(r'^admin/', admin.site.urls),#为何去掉include（admin.site.urls）
+    url(r'', include('blog.urls')),
 ]
